@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,48 +6,141 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-    
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
     /* LokaVation Custom Colors */
-    --color-primary: #2A9D8F;
-    --color-secondary: #E9C46A;
-    --color-accent: #F4A261;
+    --color-primary: #2a9d8f;
+    --color-secondary: #e9c46a;
+    --color-accent: #f4a261;
     --color-text: #264653;
-    --color-background: #FFFFFF;
-    --color-light-background: #F8F9FA;
-    
+    --color-background: #ffffff;
+    --color-light-background: #f8f9fa;
+
     /* Custom Color Variations */
     --color-primary-50: #f0fdf9;
     --color-primary-100: #dcfcf3;
     --color-primary-200: #bef8e8;
     --color-primary-300: #8fefd8;
     --color-primary-400: #58dfc1;
-    --color-primary-500: #2A9D8F;
+    --color-primary-500: #2a9d8f;
     --color-primary-600: #24887a;
     --color-primary-700: #1f7366;
     --color-primary-800: #1a5e52;
     --color-primary-900: #164a40;
-    
+
     --color-secondary-50: #fefdf8;
     --color-secondary-100: #fdf9e6;
     --color-secondary-200: #fbf2cd;
     --color-secondary-300: #f7e8a4;
     --color-secondary-400: #f1db7a;
-    --color-secondary-500: #E9C46A;
+    --color-secondary-500: #e9c46a;
     --color-secondary-600: #d4a851;
     --color-secondary-700: #b88c42;
     --color-secondary-800: #9b7038;
     --color-secondary-900: #7d582d;
-    
+
     --color-accent-50: #fef9f3;
     --color-accent-100: #fef1e1;
     --color-accent-200: #fce0c4;
     --color-accent-300: #f9c599;
     --color-accent-400: #f5a36d;
-    --color-accent-500: #F4A261;
+    --color-accent-500: #f4a261;
     --color-accent-600: #e08842;
     --color-accent-700: #c46f34;
     --color-accent-800: #a4582b;
     --color-accent-900: #864623;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDelay {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeInDelay 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeInDelay 1s ease-out 0.6s both;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeInDelay 1s ease-out 0.9s both;
+}
+
+.floating-element {
+    animation: floating 6s ease-in-out infinite;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.animate,
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax-bg {
+    transform: translateZ(0);
+    will-change: transform;
 }
